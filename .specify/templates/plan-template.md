@@ -31,7 +31,10 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- **Accuracy**: Does the plan include a strategy for primary source verification?
+- **Clarity**: Does the plan account for the target audience (university-level)?
+- **Reproducibility**: Does the plan ensure all code, examples, and simulations are reproducible?
+- **Rigor**: Is a technical review process defined and included in the plan?
 
 ## Project Structure
 

@@ -156,6 +156,10 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
 - [ ] TXXX Security hardening
 - [ ] TXXX Run quickstart.md validation
+- [ ] TXXX [P] Verify primary source citations (Accuracy Principle)
+- [ ] TXXX [P] Review content for clarity and audience fit (Clarity Principle)
+- [ ] TXXX [P] Validate reproducibility of all code and simulations (Reproducibility Principle)
+- [ ] TXXX [P] Conduct final technical review (Rigor Principle)
 
 ---
 
