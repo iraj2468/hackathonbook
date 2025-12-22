@@ -1,84 +1,264 @@
-# Feature Specification: Physical AI & Humanoid Robotics Textbook
+# /sp.spec — Physical AI & Humanoid Robotics Textbook
 
-**Feature Branch**: `001-create-robotics-textbook`
-**Created**: 2025-12-12
-**Status**: Draft
-**Input**: User description: "Physical AI & Humanoid Robotics Book Goal: Create a complete Docusaurus-based textbook covering Physical AI, ROS 2, Gazebo, Unity, NVIDIA Isaac, VLA systems, and a final capstone “Autonomous Humanoid.” Audience: Students, AI/robotics learners, developers, universities, and makers. Modules: 1. Robotic Nervous System (ROS 2) 2. Digital Twin (Gazebo + Unity) 3. AI-Robot Brain (NVIDIA Isaac) 4. VLA Systems + Capstone (Autonomous Humanoid) Success Criteria: - Full Docusaurus book with clean structure - Accurate, clear, academically rigorous content - Weekly progression (Week 1–13) - Labs, assignments, diagrams, workflows included - GitHub Pages deploy-ready output Constraints: - MD/MDX format - No installation manuals, no long history, no proprietary content - Keep explanations practical and focused on concepts, workflows, and labs Core Themes: Embodied intelligence, ROS 2 architecture, sim-to-real, Isaac Sim workflows, VLA (vision-language-action), Jetson edge deployment, and affordable robotics kits (Unitree, OP3, Hiwonder). Hardware Sections Required: RTX workstation specs, Jetson Orin Nano/NX, RealSense camera, IMU/LiDAR basics, cloud Isaac Sim pipelines. Deliverables: - Full book spec - Folder structure for Docusaurus - All module outlines + chapter breakdown - GitHub Pages deployment config - Summary, glossary, and architecture appendix"
+## Purpose of This Specification
 
-## User Scenarios & Testing *(mandatory)*
+This specification defines **how the textbook must be written**, not just what topics it covers. The goal is to create a **self-sufficient, AI-native, teaching-grade textbook** where **each chapter alone is enough to learn and practice the topic** without external resources.
 
-### User Story 1 - Access Foundational Robotics Knowledge (Priority: P1)
+The book must support:
 
-As a student, I want to access a well-structured online textbook to learn about Physical AI and robotics, so I can build foundational knowledge in the field.
+* Independent learners (no instructor required)
+* AI-assisted reading (RAG, agents, personalization)
+* Sim-to-real robotics learning
+* Software engineers transitioning into robotics
 
-**Why this priority**: This is the core purpose of the textbook.
+---
 
-**Independent Test**: The textbook can be published with just the initial chapters, providing value to early readers.
+## Target Audience Assumptions
 
-**Acceptance Scenarios**:
+* Knows Python at an intermediate level
+* New to robotics and ROS
+* Basic understanding of AI/ML concepts
+* No prior experience with humanoid robots
 
-1. **Given** I am a student, **When** I navigate to the textbook's URL, **Then** I should see a clear table of contents and be able to access the first module.
-2. **Given** I am reading a chapter, **When** I encounter a technical term, **Then** I should be able to find its definition in the glossary.
+All explanations must bridge **software concepts → physical systems**.
 
-### User Story 2 - Apply Concepts with Practical Labs (Priority: P2)
+---
 
-As a developer, I want to follow practical labs and assignments with working code examples, so I can apply the concepts I'm learning.
+## Global Writing Rules (MANDATORY)
 
-**Why this priority**: Practical application is crucial for skill development.
+These rules apply to **every chapter and module**.
 
-**Independent Test**: Each lab can be tested independently to ensure it's reproducible.
+1. **Teaching Depth**
 
-**Acceptance Scenarios**:
+   * No bullet-only chapters
+   * Every concept must include explanation + example + implication
 
-1. **Given** I am following a lab, **When** I execute the provided code, **Then** the code should run without errors and produce the expected output.
-2. **Given** I am working on an assignment, **When** I complete the tasks, **Then** I should have a clear understanding of how to apply the concepts from the chapter.
+2. **Mental Models First**
 
-### User Story 3 - Structure a Course Curriculum (Priority: P3)
+   * Explain *why* before *how*
+   * Use metaphors (brain, nervous system, senses, muscles)
 
-As an educator, I want to use a comprehensive, academically rigorous textbook with a clear weekly progression, so I can structure my course curriculum effectively.
+3. **Step-by-Step Progression**
 
-**Why this priority**: The textbook should be a valuable resource for educators.
+   * Assumptions → Setup → Execution → Validation → Debugging
 
-**Independent Test**: The 13-week structure can be evaluated for its logical flow and pacing.
+4. **No External Dependency**
 
-**Acceptance Scenarios**:
+   * Reader should not be forced to search YouTube/blogs
 
-1. **Given** I am an educator, **When** I review the book's structure, **Then** I should see a clear 13-week progression that maps to a typical university semester.
-2. **Given** I am planning a lecture, **When** I select a chapter, **Then** I should find all the necessary materials, including diagrams, labs, and assignments.
+5. **AI-Native Compatibility**
 
-### Edge Cases
+   * Content must be chunkable for RAG
+   * Clear headings and scoped sections
 
-- What happens when a user tries to run a lab with incompatible hardware? (The hardware requirements should be clearly stated.)
-- How does the system handle broken links or missing images? (Regular link checking should be part of the maintenance process.)
+---
 
-## Requirements *(mandatory)*
+## Standard Chapter Structure (REQUIRED)
 
-### Functional Requirements
+Every chapter **must follow this exact structure**:
 
-- **FR-001**: The system MUST provide a Docusaurus-based online book.
-- **FR-002**: The book MUST be organized into modules and chapters with a clear sidebar navigation.
-- **FR-003**: The content MUST cover Physical AI, ROS 2, Gazebo, Unity, NVIDIA Isaac, and VLA systems.
-- **FR-004**: Each chapter MUST include labs, assignments, diagrams, and workflows.
-- **FR-005**: The book MUST have a 13-week progression.
-- **FR-006**: The output MUST be in MD/MDX format.
-- **FR-007**: The final book MUST be deployable to GitHub Pages.
-- **FR-008**: The book MUST include a summary, glossary, and architecture appendix.
-- **FR-009**: The book MUST include hardware sections for RTX workstations, Jetson Orin, RealSense cameras, and other robotics hardware.
+1. Chapter Overview (What & Why)
+2. Learning Objectives (Clear outcomes)
+3. Conceptual Foundation (Theory + intuition)
+4. System Architecture (Textual diagram explanation)
+5. Tools & Environment Setup
+6. Step-by-Step Implementation
+7. Code Walkthrough (where applicable)
+8. Common Mistakes & Debugging
+9. Hardware & Performance Considerations
+10. Real-World Use Cases
+11. Mini Lab / Exercise
+12. Assessment Checklist
+13. Further Reading (Optional)
 
-### Key Entities *(include if feature involves data)*
+---
 
-- **Book**: The top-level entity, containing modules.
-- **Module**: A collection of chapters, representing a major topic area.
-- **Chapter**: A single section of the book, containing content, labs, and assignments.
-- **Lab**: A hands-on exercise with code examples.
-- **Assignment**: A task for the student to complete.
+# MODULE 1: The Robotic Nervous System (ROS 2)
 
-## Success Criteria *(mandatory)*
+## Module Goal
 
-### Measurable Outcomes
+Enable students to understand ROS 2 as a **distributed nervous system** and confidently build, run, debug, and extend ROS 2 nodes for humanoid robots.
 
-- **SC-001**: The full Docusaurus book is generated with a clean and logical structure.
-- **SC-002**: All technical content is accurate, clear, and academically rigorous, as verified by a technical reviewer.
-- **SC-003**: The book follows a 13-week progression, with each week's content being a reasonable amount for a university course.
-- **SC-004**: 100% of labs and code examples are reproducible using the specified hardware and software.
-- **SC-005**: The Docusaurus site builds without errors and is successfully deployed to GitHub Pages.
+## Required Chapters
+
+### Chapter 1.1: Introduction to ROS 2 and Embodied Control
+
+* Explain ROS 2 as middleware, not an OS
+* Compare ROS 1 vs ROS 2 (real-time, DDS, safety)
+* Map biological nervous system → ROS graph
+* Explain why humanoids require ROS-style architecture
+
+### Chapter 1.2: ROS 2 Core Concepts (Nodes, Topics, Services, Actions)
+
+* Deep explanation of each abstraction
+* When to use topics vs services vs actions
+* Latency and reliability tradeoffs
+* Practical humanoid examples (walking, grasping)
+
+### Chapter 1.3: Writing ROS 2 Nodes with Python (rclpy)
+
+* Node lifecycle
+* Publishers and subscribers
+* Timers and callbacks
+* Parameter management
+* Logging and introspection
+
+### Chapter 1.4: Launch Files and Multi-Node Systems
+
+* Why launch files exist
+* Structuring humanoid stacks
+* Namespaces and remapping
+* Configuration for simulation vs real robot
+
+### Chapter 1.5: URDF for Humanoid Robots
+
+* What URDF represents physically
+* Links, joints, inertia, collisions
+* Modeling humanoid kinematics
+* Common URDF mistakes that break simulation
+
+### Module 1 Lab
+
+* Build a ROS 2 package that controls a humanoid joint in simulation
+* Validate joint movement and state feedback
+
+---
+
+# MODULE 2: The Digital Twin (Gazebo & Unity)
+
+## Module Goal
+
+Teach students how to create **physically accurate digital twins** for humanoid robots and environments.
+
+## Required Chapters
+
+### Chapter 2.1: Physics Simulation Fundamentals
+
+* Why simulation matters in Physical AI
+* Rigid body dynamics basics
+* Gravity, friction, collisions
+* Simulation vs reality gap
+
+### Chapter 2.2: Gazebo Environment Setup
+
+* Gazebo architecture
+* World files and plugins
+* Integrating ROS 2 with Gazebo
+* Performance tuning
+
+### Chapter 2.3: Sensor Simulation
+
+* Simulating LiDAR, depth cameras, IMUs
+* Noise models and realism
+* Sensor data pipelines
+
+### Chapter 2.4: Unity for Visualization & Interaction
+
+* Why Unity complements Gazebo
+* Human-robot interaction scenarios
+* Visual fidelity vs physics accuracy
+
+### Module 2 Lab
+
+* Build a room-scale simulation
+* Spawn humanoid with sensors
+* Validate sensor streams in ROS 2
+
+---
+
+# MODULE 3: The AI-Robot Brain (NVIDIA Isaac)
+
+## Module Goal
+
+Enable students to use **GPU-accelerated AI pipelines** for perception, navigation, and manipulation.
+
+## Required Chapters
+
+### Chapter 3.1: NVIDIA Isaac Platform Overview
+
+* Isaac Sim vs Isaac ROS
+* Omniverse ecosystem
+* Sim-to-real philosophy
+
+### Chapter 3.2: Photorealistic Simulation & Synthetic Data
+
+* Domain randomization
+* Dataset generation
+* Training perception models
+
+### Chapter 3.3: Visual SLAM and Navigation
+
+* VSLAM fundamentals
+* Isaac ROS acceleration
+* Nav2 integration
+* Path planning for humanoids
+
+### Chapter 3.4: Reinforcement Learning for Control
+
+* Why RL is used in robotics
+* Training locomotion policies
+* Stability and safety considerations
+
+### Module 3 Lab
+
+* Train a navigation policy in Isaac Sim
+* Deploy it on a simulated humanoid
+
+---
+
+# MODULE 4: Vision-Language-Action (VLA)
+
+## Module Goal
+
+Teach students how to combine **LLMs, vision, and robotics** into cognitive humanoid systems.
+
+## Required Chapters
+
+### Chapter 4.1: Voice-to-Action Pipelines
+
+* Speech recognition using Whisper
+* Command parsing
+* Latency constraints
+
+### Chapter 4.2: Cognitive Planning with LLMs
+
+* Translating natural language to actions
+* Task decomposition
+* Safety and constraint handling
+
+### Chapter 4.3: Multi-Modal Perception
+
+* Vision + language fusion
+* Object grounding
+* Context awareness
+
+### Chapter 4.4: Agent-Based Robotics Architecture
+
+* AI agents controlling ROS 2 systems
+* Tool use and memory
+* Failure recovery
+
+### Capstone Project: The Autonomous Humanoid
+
+* End-to-end system architecture
+* Voice command → perception → navigation → manipulation
+* Evaluation criteria
+
+---
+
+## Assessment Philosophy
+
+* Emphasis on system integration
+* Debugging ability over theory
+* Sim-to-real understanding
+
+---
+
+## Final Quality Bar
+
+A reader who completes this book must be able to:
+
+* Build and simulate humanoid robots
+* Deploy AI pipelines to edge devices
+* Understand Physical AI as embodied intelligence
+* Extend the system independently
